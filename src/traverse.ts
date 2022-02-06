@@ -1,12 +1,12 @@
 export const getParentDir = (dir2?: string) => {
-	const splitByPath = dir2?.split('/');
+  const splitByPath = dir2?.split('/');
 
-	if (!splitByPath) {
-		return;
-	}
+  if (!splitByPath) {
+    return;
+  }
 
-	const fileName = splitByPath[ splitByPath.length - 1 ];
-	const dir = dir2?.replace(`/${fileName}`, '');
+  const fileName = splitByPath[ splitByPath.length - 1 ];
+  const dir = dir2?.replace(`/${fileName}`, '');
 
-	return dir;
+  return dir;
 };
