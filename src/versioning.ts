@@ -7,7 +7,12 @@ import { updateUserSettings } from './settings';
 let currentTypescriptVersion = '';
 let currentTypescriptPath = '';
 
-export const updateTypeScriptVersion = async (fileName?: string) => {  
+export const updateTypeScriptVersion = async (fileName?: string) => {
+	if (!fileName) {
+		console.log('No filename to process... returning early')
+		return;
+	}
+
   const packageJSONDir = getClosestPackageJSONDir(fileName);
   const packageJSONPath = `${packageJSONDir}/package.json`;
 
@@ -52,7 +57,7 @@ export const updateTypeScriptVersion = async (fileName?: string) => {
 /**
  * Get the closest parent directory including a package.json
  */
-const getClosestPackageJSONDir = (path?: string): string | undefined => {
+const getClosestPackageJSONDir = (path: string): string | undefined => {
   const dir = getParentDir(path);
 
   if (!dir) {

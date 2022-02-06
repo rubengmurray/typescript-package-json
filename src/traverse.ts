@@ -1,4 +1,4 @@
-export const getParentDir = (dir2?: string) => {
+export const getParentDir = (dir2: string) => {
   const splitByPath = dir2?.split('/');
 
   if (!splitByPath) {
